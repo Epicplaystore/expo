@@ -1,31 +1,96 @@
----
-title: Set up your environment
-description: Learn how to set up your development environment to start building with Expo.
-hideTOC: true
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Epic Play Store</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34; /* Dark background */
+            color: #61dafb; /* Light blue text */
+            text-align: center;
+            padding: 50px;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-import { DevelopmentEnvironmentInstructions } from '~/scenes/get-started/set-up-your-environment/DevelopmentEnvironmentInstructions';
-import { DevelopmentModeForm } from '~/scenes/get-started/set-up-your-environment/DevelopmentModeForm';
-import { PlatformAndDeviceForm } from '~/scenes/get-started/set-up-your-environment/PlatformAndDeviceForm';
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
 
-Let's set up a local development environment for running your project on Android and iOS.
+        p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
 
-## Where would you like to develop?
+        input[type="password"] {
+            padding: 10px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+        }
 
-We recommend using a real device to develop, since you'll get to see exactly what your users will see.
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #61dafb; /* Light blue button */
+            color: #282c34; /* Dark text */
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-<PlatformAndDeviceForm />
+        button:hover {
+            background-color: #21a1f1; /* Darker blue on hover */
+        }
 
-## How would you like to develop?
+        #store-content {
+            display: none; /* Hidden by default */
+            margin-top: 20px;
+            background-color: #fff; /* White background for store content */
+            color: #282c34; /* Dark text for store content */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
 
-Expo Go is a sandbox for trying out Expo quickly. A development build is a build of your own app that includes Expo's developer tools.
+<h1>Welcome to the Epic Play Store</h1>
+<p>This store is private. Please enter the password to access.</p>
 
-<DevelopmentModeForm />
+<input type="password" id="password" placeholder="Enter password"345! />
+<button onclick="checkPassword()">Enter</button>
 
----
+<div id="store-content">
+    <h2>Store Items</h2>
+    <p>Here are the amazing games available for you!</p>
+    <!-- Add your store items here -->
+</div>
 
-<DevelopmentEnvironmentInstructions />
+<script>
+    const correctPassword = "89023!"; // The password to access the store
 
-## Next step
+    function checkPassword() {
+        const enteredPassword = document.getElementById("password").value;
 
-You have a project and a development environment. Now it's time to start developing.
+        if (enteredPassword === correctPassword) {
+            alert("Access granted!");
+            document.getElementById("store-content").style.display = "block"; // Show the store content
+        } else {
+            alert("Incorrect password! Please try again.");
+        }
+    }
+</script>
+
+</body>
+</html>
